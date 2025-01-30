@@ -39,7 +39,7 @@ class CrudRepository {
 
   async getAllNotes() {
     try {
-      const notes = await this.model.find();
+      const notes = await this.model.find().sort({ createdAt: -1 });
       return notes;
     } catch (error) {
       console.error("Unable to retrieve notes:", error.message);
